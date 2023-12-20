@@ -36,9 +36,10 @@ bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
+bindsym $mod+Control+k exec --no-startup-id "ps -e -o comm | dmenu -fn 'Fira Code-12' -l 30 -p Kill\ Process | xargs kill -9"
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id dmenu_run -fn "Fira Code-12" -l 5
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
