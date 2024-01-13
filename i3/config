@@ -180,5 +180,5 @@ bindsym $mod+shift+f exec firefox
 bar {
         position bottom
         status_command bumblebee-status -m nvidiagpu memory cpu \
-		pasink pasource kernel datetime battery -p nvidiagpu.format="GPU {temp}°C use{gpu_usage_pct}/mem{mem_usage_pct}" -p cpu.format="{:.01f}%"
+		pasink kernel datetime battery -p nvidiagpu.format="GPU {temp}°C use{gpu_usage_pct}/mem{mem_usage_pct}" -p cpu.format="{:.01f}%"
 }
