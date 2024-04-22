@@ -1,0 +1,14 @@
+live_config_reload: true
+font:
+  size: 10
+  normal:
+    family: Fira Code
+    style: Regular
+window:
+  decorations: None
+  opacity: 0.9
+  padding:
+    x: 10
+    y: 10
+  blur: true
+  dynamic_padding: true
