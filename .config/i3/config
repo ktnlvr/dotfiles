@@ -1,6 +1,6 @@
 set $mod Mod4
 
-exec_always --no-startup-id feh --bg-scale $HOME/.config/Desktop.jpg
+exec_always --no-startup-id feh --bg-fill $HOME/background-image.jpg
 
 font pango:Fira Code 10
 
