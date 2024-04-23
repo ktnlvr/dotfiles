@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "ktnlvr's dotfiles coming right up!"
+
 if [ ! -d "$HOME" ]; then
   echo "\$HOME not defined, aborting"
   exit 0
@@ -19,4 +21,3 @@ stow . -d $HOME/.dotfiles --adopt || { exit $?; }
 
 echo "done! enjoy my configs"
 echo "            - ktnlvr  "
-
