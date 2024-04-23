@@ -5,7 +5,11 @@
 Can be installed via `curl` using the installation script. Installation requires `git` and `stow`.
 
 ```sh
-curl -sS https://raw.githubusercontent.com/ktnlvr/dotfiles/master/install.sh | bash
+curl -sS https://raw.githubusercontent.com/ktnlvr/dotfiles/master/install.sh | sh
+```
+
+```sh
+wget https://raw.githubusercontent.com/ktnlvr/dotfiles/master/install.sh -O - | sh
 ```
 
 ## Software
