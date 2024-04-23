@@ -1,5 +1,8 @@
 #!/bin/bash
 
+command -v stow >/dev/null 2>&1 || { echo >&2 "stow required but not installed. aborting."; exit 1; }
+command -v git >/dev/null 2>&1 || { echo >&2 "git required but not installed. aborting."; exit 1; }
+
 echo "ktnlvr's dotfiles coming right up!"
 
 if [ ! -d "$HOME" ]; then
