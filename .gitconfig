@@ -3,3 +3,5 @@
 	email = artur.roos.artur@gmail.com
 [core]
 	editor = nvim
+[init]
+	defaultBranch = dev
