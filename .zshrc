@@ -29,4 +29,7 @@ alias gc='git commit'
 alias c='code-insiders'
 alias gmend='git commit --amend --no-edit'
 
+# compatibility with sudo scripts
+alias sudo='doas'
+
 eval "$(zoxide init zsh --cmd cd)"
