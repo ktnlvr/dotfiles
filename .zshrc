@@ -6,7 +6,7 @@ export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.cargo/env:$PATH
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="fishy"
 
-CASE_SENSITIVE="true"
+CASE_SENSITIVE="false"
 
 zstyle ':omz:update' mode reminder
 
