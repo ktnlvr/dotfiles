@@ -14,3 +14,8 @@ vim.o.termguicolors = true
 
 vim.o.mouse = 'a'
 
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*" },
+  command = [[%s/\s\+$//e]],
+})
+

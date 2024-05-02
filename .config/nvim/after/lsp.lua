@@ -60,3 +60,8 @@ require('lspconfig').rust_analyzer.setup {
 require('mason').setup {
 	PATH = "append",
 }
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+	callback = function() vim.lsp.buf.format() end,
+	group = vim.api.nvim_create_augroup("lsp_document_format", {clear = true})
+})

@@ -48,6 +48,7 @@ return {
 	},
 	"easymotion/vim-easymotion",
 	"junegunn/fzf.vim",
+	"junegunn/fzf",
 	"tpope/vim-fugitive",
 	{
 		'lewis6991/hover.nvim',
