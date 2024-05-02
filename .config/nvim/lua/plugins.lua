@@ -46,6 +46,9 @@ return {
 		require("nvim-tree").setup {}
 	  end,
 	},
+	"easymotion/vim-easymotion",
+	"junegunn/fzf.vim",
+	"tpope/vim-fugitive",
 	{
 		'lewis6991/hover.nvim',
 		config = function()

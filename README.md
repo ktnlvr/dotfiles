@@ -2,7 +2,7 @@
 
 ## Installation
 
-Can be installed via `curl` using the installation script. Installation requires `git` and `stow`. Before downloading [read the files yourselves](./install.sh), it isn't that long. `sudo` not required.
+Can be installed via `curl` using the installation script. Installation requires `git` and `stow`. Before downloading [read the script yourself](./install.sh), it isn't that long. `sudo` not required.
 
 ```sh
 curl -sS https://raw.githubusercontent.com/ktnlvr/dotfiles/master/install.sh | sh
