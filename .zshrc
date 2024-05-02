@@ -33,3 +33,20 @@ alias gmend='git commit --amend --no-edit'
 alias sudo='doas'
 
 eval "$(zoxide init zsh --cmd cd)"
+
+startc() {
+  if [ -n "$1" ]; then 
+    mkdir -p $1
+    cd $1
+  else
+    echo "No directory name provided, usage: startc <dirname>";
+    return 1;
+  fi
+
+  git init
+  mkdir -p src
+  mkdir -p include
+  echo -e "#include <stdio.h>\n\nint main(void) {\n  printf(\"Hello, world!\\\n\");\n}" > src/main.c
+  echo "compile:\n\tmkdir -p build\n\tgcc src/main.c -Iinclude/ -o ./build/out" > makefile
+  echo "BasedOnStyle: LLVM" > .clang-format
+}
