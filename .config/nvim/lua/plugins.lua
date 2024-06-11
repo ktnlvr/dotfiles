@@ -22,7 +22,7 @@ return {
 	{
 		'shaunsingh/nord.nvim',
 		priority = 1000,
-		config = function() 
+		config = function()
 			vim.cmd("colorscheme nord")
 		end
 	},
@@ -50,6 +50,8 @@ return {
 	"junegunn/fzf.vim",
 	"junegunn/fzf",
 	"tpope/vim-fugitive",
+	"andweeb/presence.nvim",
+	"airblade/vim-gitgutter",
 	{
 		'lewis6991/hover.nvim',
 		config = function()
