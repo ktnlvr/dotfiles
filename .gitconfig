@@ -6,4 +6,4 @@
 	helper = !/usr/bin/gh auth git-credential
 [user]
 	name = Artur Roos
-	email = artur.roos.artur@gmail.com
+	email = artur.roos@ktnlvr.dev
