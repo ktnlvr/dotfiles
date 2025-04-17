@@ -42,3 +42,8 @@ wk.add({
     {'<leader>ogi', find_file_in_parents_and_open({".gitignore"}), desc="Open .gitignore"}
 })
 
+local capabilities = require('blink.cmp').get_lsp_capabilities()
+lspconfig = require('lspconfig')
+lspconfig.clangd.setup({ capabilities = capabilities })
+
+print("Capabilities set up!")

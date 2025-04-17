@@ -12,6 +12,9 @@ require "paq" {
     'nvim-lua/plenary.nvim', -- Dependency for telescope, hop and neogit
     'nvim-telescope/telescope.nvim',
 
+    'rafamadriz/friendly-snippets', -- Dependency for blink.cmp
+    'saghen/blink.cmp',
+
     { "lervag/vimtex", opt = true },
     { "phaazon/hop.nvim", branch = "v2" },
     "NeogitOrg/neogit",
@@ -21,6 +24,19 @@ require "paq" {
 
     "nyoom-engineering/oxocarbon.nvim",
 }
+
+require('blink.cmp').setup({
+    signature = { enabled = true },
+    keymap = { preset = 'default' },
+    appearance = {
+        nerd_font_variant = 'mono'
+    },
+    completion = { documentation = { auto_show = false } },
+    sources = {
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
+    },
+    fuzzy = { implementation = "prefer_rust" }
+})
 
 vim.opt.background = "dark"
 vim.cmd.colorscheme("oxocarbon")
