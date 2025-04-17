@@ -12,7 +12,7 @@ require('mason').setup()
 
 local wk = require('which-key')
 
-function find_file_in_parents_and_open()
+function find_file_in_parents_and_open(possible_filenames)
     function _find_file_closure()
         local fn = vim.fn;
         local env = vim.env;
@@ -22,7 +22,7 @@ function find_file_in_parents_and_open()
         local cwd = fn.getcwd()
 
         while cwd ~= home and cwd ~= '/' do
-            for _, filename in ipairs(possible_readmes) do
+            for _, filename in ipairs(possible_filenames) do
                 local filepath = cwd .. '/' .. filename
                 if fn.filereadable(filepath) == 1 then 
                     vim.cmd('vsplit ' .. fn.fnameescape(filepath))
@@ -34,6 +34,8 @@ function find_file_in_parents_and_open()
 
         print("No README found")
     end
+
+    return _find_file_closure
 end
 
 local possible_readmes = {"README.txt", "README.md", "README.rst", "README"}
