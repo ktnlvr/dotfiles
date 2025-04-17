@@ -16,7 +16,7 @@ require "paq" {
     'saghen/blink.cmp',
 
     { "lervag/vimtex", opt = true },
-    { "phaazon/hop.nvim", branch = "v2" },
+    { "smoka7/hop.nvim", branch = "v2.7.2" },
     "NeogitOrg/neogit",
 
     { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
@@ -35,7 +35,7 @@ require('blink.cmp').setup({
     sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer' },
     },
-    fuzzy = { implementation = "prefer_rust" }
+    fuzzy = { implementation = "lua" }
 })
 
 vim.opt.background = "dark"
