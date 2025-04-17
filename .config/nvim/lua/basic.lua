@@ -62,7 +62,7 @@ function build_comp_cpp()
     end
 
     local compile_cmd = string.format(
-        'clang -Wall -Wextra -std=c++20 -lstdc++ %s -o %s/a.out',
+        'clang -Wall -Wextra -DDEBUG -std=c++20 -lstdc++ %s -o %s/a.out -g',
         vim.fn.shellescape(filepath),
         vim.fn.shellescape(dir)
     )
@@ -83,5 +83,5 @@ function build_comp_cpp()
 end
 
 wk.add({
-    {'<leader><leader>cc', build_and_run_comp_cpp, desc="Build & Run C++ Algorithm"}
+    {'<leader><leader>cc', build_comp_cpp, desc="Build & Run C++ Algorithm"}
 })
