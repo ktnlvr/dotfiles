@@ -48,4 +48,40 @@ local capabilities = require('blink.cmp').get_lsp_capabilities()
 lspconfig = require('lspconfig')
 lspconfig.clangd.setup({ capabilities = capabilities })
 
-print("Capabilities set up!")
+-- For compiling competetive programming things/leetcode
+function build_comp_cpp()
+    local filename = vim.fn.expand('%:t:r')
+    vim.notify(string.format("Compiling %s...", filename), vim.log.levels.INFO)
+    
+    local filepath  = vim.fn.expand('%:p')
+    local dir = vim.fn.expand('%:p:h')
+
+    if vim.fn.filereadable(filepath) ~= 1 then
+        vim.notify("File is not readable: " .. filepath, vim.log.levels.ERROR)
+        return
+    end
+
+    local compile_cmd = string.format(
+        'clang -Wall -Wextra -std=c++20 -lstdc++ %s -o %s/a.out',
+        vim.fn.shellescape(filepath),
+        vim.fn.shellescape(dir)
+    )
+
+    local output = vim.fn.systemlist(compile_cmd)
+
+    if vim.v.shell_error ~= 0 then
+        vim.fn.setqflist({}, ' ', {
+            title = 'Clang Compilation Errors',
+            lines = output,
+            efm = '%f:%l:%c: %m'
+        })
+        vim.cmd('copen')
+        vim.notify("Compilation failed", vim.log.levels.ERROR)
+    else
+        vim.notify("Compilation successful!", vim.log.levels.INFO)
+    end
+end
+
+wk.add({
+    {'<leader><leader>cc', build_and_run_comp_cpp, desc="Build & Run C++ Algorithm"}
+})
