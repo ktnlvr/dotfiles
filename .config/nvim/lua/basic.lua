@@ -12,28 +12,33 @@ require('mason').setup()
 
 local wk = require('which-key')
 
-function open_readme()
-    local fn = vim.fn;
-    local env = vim.env;
+function find_file_in_parents_and_open()
+    function _find_file_closure()
+        local fn = vim.fn;
+        local env = vim.env;
 
-    local possible_readmes = {"README.txt", "README.md", "README.rst", "README"}
+        
+        local home = env.HOME or env.USERPROFILE
+        local cwd = fn.getcwd()
 
-    local home = env.HOME or env.USERPROFILE
-    local cwd = fn.getcwd()
-
-    while cwd ~= home and cwd ~= '/' do
-        for _, filename in ipairs(possible_readmes) do
-            local filepath = cwd .. '/' .. filename
-            if fn.filereadable(filepath) == 1 then 
-                vim.cmd('vsplit ' .. fn.fnameescape(filepath))
-                print("Found README: " .. filepath)
-                return
+        while cwd ~= home and cwd ~= '/' do
+            for _, filename in ipairs(possible_readmes) do
+                local filepath = cwd .. '/' .. filename
+                if fn.filereadable(filepath) == 1 then 
+                    vim.cmd('vsplit ' .. fn.fnameescape(filepath))
+                    print("Found README: " .. filepath)
+                    return
+                end
             end
         end
-    end
 
-    print("No README found")
+        print("No README found")
+    end
 end
 
-wk.add({ {'<leader>orm', open_readme, desc="Open README"} })
+local possible_readmes = {"README.txt", "README.md", "README.rst", "README"}
+wk.add({
+    {'<leader>orm', find_file_in_parents_and_open(possible_readmes), desc="Open README"},
+    {'<leader>ogi', find_file_in_parents_and_open({".gitignore"}), desc="Open .gitignore"}
+})
 
