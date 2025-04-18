@@ -84,10 +84,34 @@ function build_comp_cpp()
     else
         vim.notify("Compilation successful!", vim.log.levels.INFO)
     end
+
+    local input = "input.txt"
+    local output = ""
+
+    if vim.fn.filereadable(input) == 1 then
+        local handle = io.popen("./a.out < " .. input)
+        if handle then
+            output = handle:read("*a")
+            handle:close()
+        else
+            vim.notify("Failed to run the file")
+            return
+        end
+    else
+        vim.notify("No input.txt file ran")
+        return
+    end
+
+    local main_win = vim.api.nvim_get_current_win()
+
+    local out_buf = vim.api.nvim_create_buf(false, true)
+    vim.api.nvim_buf_set_lines(out_buf, 0, -1, false, vim.split(output, "\n"))
+    vim.cmd("vsplit")
+    vim.api.nvim_win_set_buf(0, out_buf)
 end
 
 wk.add({
-    {'<leader><leader>cc', build_comp_cpp, desc="Build & Run C++ Algorithm"}
+    {'<leader><leader>c', build_comp_cpp, desc="Build & Run C++ Algorithm"}
 })
 
 local floating_window = {
