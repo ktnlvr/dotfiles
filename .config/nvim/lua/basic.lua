@@ -164,3 +164,9 @@ wk.add({{ '<leader>ft', function()
     vim.cmd(":NvimTreeToggle")
 end, desc="File Tree Toggle" }})
 
+-- Tmux-like keybinds
+wk.add({
+    { '<C-b>%', ':vsplit<CR>', desc="Tmux-like Vertical Split" },
+    { '<C-b>"', ':split<CR>', desc="Tmux-like Horizontal Split" },
+})
+
