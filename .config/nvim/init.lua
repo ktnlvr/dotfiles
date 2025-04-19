@@ -23,7 +23,16 @@ require "paq" {
     { 'nvim-treesitter/playground' },
 
     "nyoom-engineering/oxocarbon.nvim",
+
+    "vimwiki/vimwiki", -- Notes/Productivity Yaaay
+
+    "nvim-tree/nvim-tree.lua", -- File Tree View
 }
+
+vim.opt.background = "dark"
+vim.cmd.colorscheme("oxocarbon")
+
+require('nvim-tree').setup()
 
 require('blink.cmp').setup({
     signature = { enabled = true },
@@ -37,8 +46,5 @@ require('blink.cmp').setup({
     },
     fuzzy = { implementation = "lua" }
 })
-
-vim.opt.background = "dark"
-vim.cmd.colorscheme("oxocarbon")
 
 require('basic')

@@ -160,3 +160,7 @@ end
 
 wk.add({{ '<leader>tt', toggle_floating_window }})
 
+wk.add({{ '<leader>ft', function()
+    vim.cmd(":NvimTreeToggle")
+end, desc="File Tree Toggle" }})
+
