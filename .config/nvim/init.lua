@@ -28,6 +28,7 @@ require "paq" {
 
     "nvim-tree/nvim-tree.lua", -- File Tree View
     "lewis6991/gitsigns.nvim", -- Line-by-line Blame/Diff
+    "nvim-lualine/lualine.nvim", -- Cool status line
 }
 
 vim.opt.background = "dark"
@@ -49,6 +50,8 @@ require('blink.cmp').setup({
 })
 
 require('gitsigns').setup({ word_diff = true, current_line_blame = true })
+
+require('lualine').setup()
 
 require('basic')
 
