@@ -27,6 +27,7 @@ require "paq" {
     "vimwiki/vimwiki", -- Notes/Productivity Yaaay
 
     "nvim-tree/nvim-tree.lua", -- File Tree View
+    "lewis6991/gitsigns.nvim", -- Line-by-line Blame/Diff
 }
 
 vim.opt.background = "dark"
@@ -47,4 +48,7 @@ require('blink.cmp').setup({
     fuzzy = { implementation = "lua" }
 })
 
+require('gitsigns').setup({ word_diff = true, current_line_blame = true })
+
 require('basic')
+
